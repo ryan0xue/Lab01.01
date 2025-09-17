@@ -20,10 +20,28 @@ public class SimpleIOMath {
         System.out.print("Question 1: What is your name? ");
         name = in.nextLine();
         // TODO: Fix this so JC won't break my program
-        System.out.print("Question 2: How old are you? ");
-        age = in.nextInt();
-        System.out.print("Question 3: What is your favorite number? ");
-        favNumber = in.nextInt();
+        while (true) {
+            System.out.print("Question 2: How old are you? ");
+            try {
+                age = Integer.parseInt(in.nextLine());
+                if (age > 1) break;
+                System.out.println("That's.. not true.");
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please try again.");
+            }
+        }
+        while (true) {
+            System.out.print("Question 3: What is your favorite number? ");
+            try {
+                favNumber = Integer.parseInt(in.nextLine());
+                if (favNumber == 67) {
+                    System.out.println("SIX SEEVEEEEENNN!!!!"); // extra
+                }
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please try again.");
+            }
+        }
     }
 
     private boolean isPrime(int n) {
