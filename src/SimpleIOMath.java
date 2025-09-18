@@ -5,6 +5,8 @@ import java.util.Scanner;
  * The Jackson Five were bangin' in their heyday
  * @version 09.17.2025
  * @author ryanxue
+ * https://app.flintk12.com/activities/lab-01-01-help-f42c3d/sessions/new
+ * https://app.flintk12.com/chats/eb8ba671-c37d-4b52-b61b-56bfe564c7f4
  */
 
 public class SimpleIOMath {
@@ -19,13 +21,12 @@ public class SimpleIOMath {
         Scanner in = new Scanner(System.in);
         System.out.print("Question 1: What is your name? ");
         name = in.nextLine();
-        // TODO: Fix this so JC won't break my program
         while (true) {
             System.out.print("Question 2: How old are you? ");
             try {
                 age = Integer.parseInt(in.nextLine());
                 if (age > 1) break;
-                System.out.println("That's.. not true.");
+                System.out.println("That's.. probably not true.");
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please try again.");
             }
@@ -45,10 +46,10 @@ public class SimpleIOMath {
     }
 
     private boolean isPrime(int n) {
-        for (int i = 2; i <= Math.sqrt(n)+1; i++) {
-            if (n % i == 0) {
-                return false;
-            }
+        if (n == 2) return true;
+        if (n < 2) return false;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) return false;
         }
         return true;
     }
